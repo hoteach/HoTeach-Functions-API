@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "HoTeach_Functions_API": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7071",
+      "launchBrowser": false
+    }
+  }
+}
