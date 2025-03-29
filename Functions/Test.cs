@@ -15,8 +15,8 @@ namespace HoTeach_Functions_API.Functions
             _logger = logger;
         }
 
+        [Authorize("hoteach:default")]
         [Function("Test")]
-        [Authorize]
         public IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequest req)
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");

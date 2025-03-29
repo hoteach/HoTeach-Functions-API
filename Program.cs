@@ -30,6 +30,7 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddAuthorization();
 
 // Add the authentication middleware to the worker
+builder.Services.AddSingleton<AuthenticationMiddleware>();
 builder.UseMiddleware<AuthenticationMiddleware>();
 
 // Application Insights isn't enabled by default. See https://aka.ms/AAt8mw4.

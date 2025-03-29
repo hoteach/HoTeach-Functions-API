@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
 
 namespace HoTeach_Functions_API.Infrastructure.Authentication.Helpers
@@ -45,14 +46,15 @@ namespace HoTeach_Functions_API.Infrastructure.Authentication.Helpers
                 // Define token validation parameters
                 var tokenValidationParameters = new TokenValidationParameters
                 {
+                    ValidateIssuerSigningKey = true,
                     ValidateIssuer = true,
                     ValidateAudience = true,
-                    ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
                     ValidIssuer = $"https://{_configuration["Auth0:Domain"]}/",
                     ValidAudience = _configuration["Auth0:Audience"],
-                    IssuerSigningKey = new SymmetricSecurityKey(
-                        Encoding.UTF8.GetBytes(_configuration["Auth0:ClientSecret"] ?? string.Empty))
+                    IssuerSigningKeys = OpenIdConnectConfigurationRetriever
+                    .GetAsync($"https://{_configuration["Auth0:Domain"]}/.well-known/openid-configuration", default)
+                    .GetAwaiter().GetResult()
+                    .SigningKeys
                 };
 
                 // Validate the token
