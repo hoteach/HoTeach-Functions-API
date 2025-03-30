@@ -1,4 +1,4 @@
-using HoTeach.Functions.API.Authentication.Attributes;
+using HoTeach_Functions_API.Infrastructure.Authentication.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;

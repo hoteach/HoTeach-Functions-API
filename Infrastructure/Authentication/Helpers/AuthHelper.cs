@@ -1,12 +1,9 @@
-using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace HoTeach_Functions_API.Infrastructure.Authentication.Helpers
 {

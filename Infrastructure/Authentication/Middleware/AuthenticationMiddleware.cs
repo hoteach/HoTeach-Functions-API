@@ -1,13 +1,10 @@
-using System;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
+using HoTeach_Functions_API.Infrastructure.Authentication.Attributes;
 using HoTeach_Functions_API.Infrastructure.Authentication.Helpers;
 using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Middleware;
 using Microsoft.Azure.Functions.Worker.Http;
+using Microsoft.Azure.Functions.Worker.Middleware;
 using Microsoft.Extensions.Logging;
-using HoTeach_Functions_API.Infrastructure.Authentication.Attributes;
+using System.Reflection;
 
 namespace HoTeach_Functions_API.Infrastructure.Authentication.Middleware
 {
