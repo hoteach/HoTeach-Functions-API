@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using HoTeach.Functions.API.Authentication.Middleware;
+using HoTeach_Functions_API.Infrastructure.Authentication.Middleware;
 
 var builder = FunctionsApplication.CreateBuilder(args);
 

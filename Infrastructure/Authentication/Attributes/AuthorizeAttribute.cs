@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HoTeach.Functions.API.Authentication.Attributes
+namespace HoTeach_Functions_API.Infrastructure.Authentication.Attributes
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
     public class AuthorizeAttribute : Attribute
