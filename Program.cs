@@ -4,10 +4,17 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using HoTeach_Functions_API.Infrastructure.Authentication.Middleware;
+using Microsoft.EntityFrameworkCore;
+using HoTeach_Functions_API.Infrastructure.Persistence;
+using Microsoft.Extensions.Configuration;
 
 var builder = FunctionsApplication.CreateBuilder(args);
 
 builder.ConfigureFunctionsWebApplication();
+
+// Configure PostgreSQL with Entity Framework Core
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Configure Auth0 authentication
 builder.Services.AddAuthentication(options =>
